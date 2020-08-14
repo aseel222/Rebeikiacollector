@@ -1,4 +1,4 @@
-package com.example.rebeikiacollector;
+package com.example.rebeikiacollector.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,6 +10,7 @@ import android.os.Bundle;
 import com.azoft.carousellayoutmanager.CarouselLayoutManager;
 import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener;
 import com.azoft.carousellayoutmanager.CenterScrollListener;
+import com.example.rebeikiacollector.R;
 import com.example.rebeikiacollector.adapter.CategoryAdapter;
 import com.example.rebeikiacollector.model.CategoryModel;
 
