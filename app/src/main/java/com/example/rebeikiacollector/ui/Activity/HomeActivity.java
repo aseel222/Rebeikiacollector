@@ -1,4 +1,4 @@
-package com.example.rebeikiacollector;
+package com.example.rebeikiacollector.ui.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,7 +10,8 @@ import android.os.Bundle;
 import com.azoft.carousellayoutmanager.CarouselLayoutManager;
 import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener;
 import com.azoft.carousellayoutmanager.CenterScrollListener;
-import com.example.rebeikiacollector.adapter.CategoryAdapter;
+import com.example.rebeikiacollector.R;
+import com.example.rebeikiacollector.ui.adapter.CategoryAdapter;
 import com.example.rebeikiacollector.model.CategoryModel;
 
 import java.util.ArrayList;
@@ -36,12 +37,12 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onitemclick(int pos, CategoryModel model) {
                 if(pos==0){
-                    Intent i=new Intent(HomeActivity.this,CompletedRequestActivity.class);
+                    Intent i=new Intent(HomeActivity.this, CompletedRequestActivity.class);
                     startActivity(i);
 
                 }
                 else if(pos==1){
-                    Intent i=new Intent(HomeActivity.this,PendingRequestActivity.class);
+                    Intent i=new Intent(HomeActivity.this, PendingRequestActivity.class);
                     startActivity(i);
 
                 }

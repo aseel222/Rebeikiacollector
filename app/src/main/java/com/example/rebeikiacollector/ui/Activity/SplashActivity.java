@@ -1,10 +1,12 @@
-package com.example.rebeikiacollector;
+package com.example.rebeikiacollector.ui.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.rebeikiacollector.R;
 
 public class SplashActivity extends AppCompatActivity {
     Handler handler;

@@ -1,8 +1,10 @@
-package com.example.rebeikiacollector;
+package com.example.rebeikiacollector.ui.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.rebeikiacollector.R;
 
 public class PendingRequestActivity extends AppCompatActivity {
 

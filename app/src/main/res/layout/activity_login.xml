@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".ui.Activity.LoginActivity">
     <ImageView
         android:id="@+id/toplayer"
         android:layout_width="@dimen/_200sdp"
@@ -86,17 +86,7 @@
 
         />
 
-    <TextView
-        android:id="@+id/forgetpasstxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_40sdp"
-        android:text="@string/forget_password"
-        android:textColor="@color/blackhint"
-        android:textSize="@dimen/_13ssp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/passtxt" />
+
 
     <Button
         android:id="@+id/loginbtn"
@@ -112,33 +102,10 @@
         android:textSize="@dimen/_15ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/forgetpasstxt"
+        app:layout_constraintTop_toBottomOf="@id/passtxt"
 
 
         />
 
-    <TextView
-        android:id="@+id/donthaveacctxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_30sdp"
-        android:text="@string/dont_have_account_please"
-        android:textColor="@color/blackhint"
-        android:textSize="@dimen/_15ssp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loginbtn" />
-
-    <TextView
-        android:id="@+id/signuptxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:text="@string/signup"
-        android:textColor="@color/green"
-        android:textSize="@dimen/_15ssp"
-        app:layout_constraintEnd_toEndOf="@id/donthaveacctxt"
-        app:layout_constraintStart_toStartOf="@id/donthaveacctxt"
-        app:layout_constraintTop_toBottomOf="@id/donthaveacctxt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
