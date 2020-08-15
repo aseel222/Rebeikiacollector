@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.rebeikiacollector.R;
+import com.example.rebeikiacollector.model.BaseResponse;
 import com.example.rebeikiacollector.model.ProfileResponse;
 import com.example.rebeikiacollector.utiles.InternetConnection;
 import com.example.rebeikiacollector.utiles.Utiles;
@@ -17,7 +18,7 @@ import retrofit2.Response;
 public class MenuViewModel extends BaseViewModel {
 
     public MutableLiveData<ProfileResponse> profileResponse = new MutableLiveData<>();
-
+    public MutableLiveData<BaseResponse> logoutResponse = new MutableLiveData<>();
 
     public MenuViewModel(@NonNull Application application) {
         super(application);
@@ -63,5 +64,37 @@ public class MenuViewModel extends BaseViewModel {
     }
 
 
+    public void logOut(String token) {
+        if (InternetConnection.checkInternetConnection()) {
+            setIsLoading(true);
+            getRepository().logout(token)
+                    .subscribe(new Observer<Response<BaseResponse>>() {
+                        @Override
+                        public void onSubscribe(Disposable d) {
+                        }
 
+                        @Override
+                        public void onNext(Response<BaseResponse> response) {
+                            if (response.code() == 200) {
+                                if (response.body().getStatus() == 1) {
+                                    setIsLoading(false);
+                                    logoutResponse.setValue(response.body());
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onError(Throwable e) {
+                            setIsLoading(false);
+                        }
+
+                        @Override
+                        public void onComplete() {
+                            setIsLoading(false);
+                        }
+                    });
+        } else {
+            setMsgRes(R.string.internet_not_connected);
+        }
+    }
 }

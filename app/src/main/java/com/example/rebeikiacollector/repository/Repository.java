@@ -5,6 +5,7 @@ import android.util.Log;
 import android.webkit.MimeTypeMap;
 
 
+import com.example.rebeikiacollector.model.BaseResponse;
 import com.example.rebeikiacollector.model.ProfileResponse;
 import com.example.rebeikiacollector.repository.remote.ApiManager;
 import com.example.rebeikiacollector.repository.remote.ApiService;
@@ -41,6 +42,12 @@ public final class Repository {
 
     public Observable<Response<ProfileResponse>> getProfileData(String token) {
         return service.getProfileData(token)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Observable<Response<BaseResponse>> logout(String token) {
+        return service.logout(token)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }

@@ -3,6 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="clickHandler"
+            type="com.example.rebeikiacollector.ui.MenuActivity.MenuClickHandler" />
+    </data>
     <ScrollView
         android:fillViewport="true"
         android:layout_width="match_parent"
@@ -45,21 +50,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="@dimen/_30sdp"
                 app:layout_constraintEnd_toEndOf="parent" />
-
-
-
-            <ImageView
-                android:id="@+id/edit_profile"
-                android:layout_width="@dimen/_15sdp"
-                android:layout_height="@dimen/_15sdp"
-                app:layout_constraintTop_toBottomOf="@id/profile_image"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_marginEnd="@dimen/_80sdp"
-                android:src="@drawable/ic_edit"
-                android:scaleType="fitXY"
-
-                />
+ 
 
             <TextView
                 android:id="@+id/tv_name"
@@ -324,7 +315,7 @@
                 />
 
             <TextView
-
+                android:onClick="@{()->clickHandler.onLogoutClick()}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/view5"

@@ -64,6 +64,8 @@ public class MenuActivity extends BaseActivity {
         });
     }
     class MenuClickHandler{
-
+        public void onLogoutClick() {
+            viewModel.logOut(Constants.temp_token);
+        }
     }
 }
