@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import com.azoft.carousellayoutmanager.CarouselLayoutManager;
 import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener;
@@ -22,11 +23,13 @@ public class HomeActivity extends AppCompatActivity {
     CategoryAdapter adapter;
     List<CategoryModel>list;
     Context context=this;
+    ImageView menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        menu = findViewById(R.id.iv_menu);
         final CarouselLayoutManager layoutManager = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, true);
         layoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
         imglist();
@@ -52,6 +55,9 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.addOnScrollListener(new CenterScrollListener());
+        menu.setOnClickListener(view ->{
+            startActivity(new Intent(HomeActivity.this , MenuActivity.class));
+        });
     }
     public  void imglist(){
         list=new ArrayList<>();

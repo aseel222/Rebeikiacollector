@@ -6,7 +6,7 @@ import android.content.Context;
 import com.example.rebeikiacollector.R;
 import com.example.rebeikiacollector.repository.local.PreferencesManager;
 import com.jakewharton.retrofit2.adapter.rxjava2.HttpException;
- 
+
 import java.io.IOException;
 import java.net.SocketException;
 import java.util.Locale;
