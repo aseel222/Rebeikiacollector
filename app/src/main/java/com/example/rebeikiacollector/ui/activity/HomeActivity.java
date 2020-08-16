@@ -1,4 +1,4 @@
-package com.example.rebeikiacollector.ui.Activity;
+package com.example.rebeikiacollector.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,6 +11,7 @@ import com.azoft.carousellayoutmanager.CarouselLayoutManager;
 import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener;
 import com.azoft.carousellayoutmanager.CenterScrollListener;
 import com.example.rebeikiacollector.R;
+import com.example.rebeikiacollector.ui.MenuActivity;
 import com.example.rebeikiacollector.ui.adapter.CategoryAdapter;
 import com.example.rebeikiacollector.model.CategoryModel;
 
@@ -32,6 +33,9 @@ public class HomeActivity extends AppCompatActivity {
         imglist();
         recyclerView=findViewById(R.id.home_recyclerview);
 
+        findViewById(R.id.iv_menu).setOnClickListener( view ->{
+            startActivity(new Intent(HomeActivity.this , MenuActivity.class));
+        });
         adapter=new CategoryAdapter(list,context);
         adapter.setOnbuttonclicklistner(new CategoryAdapter.OnItemClickListner() {
             @Override
@@ -46,6 +50,11 @@ public class HomeActivity extends AppCompatActivity {
                     startActivity(i);
 
                 }
+                else if(pos==2){
+                    Intent i=new Intent(HomeActivity.this, ActiveRequestActivity.class);
+                    startActivity(i);
+
+                }
             }
         });
         recyclerView.setAdapter(adapter);
@@ -55,8 +64,10 @@ public class HomeActivity extends AppCompatActivity {
     }
     public  void imglist(){
         list=new ArrayList<>();
-        list.add(new CategoryModel("Completed Requests",R.drawable.ic_asset1));
-        list.add(new CategoryModel("Pending Requests",R.drawable.ic_asset_6));
+        list.add(new CategoryModel("Confirmed Requests",R.drawable.ic_asset1));
+        list.add(new CategoryModel("Confirmed Special Requests",R.drawable.ic_asset_6));
+        list.add(new CategoryModel("Active Requests",R.drawable.ic_asset_4));
+
 
 
 

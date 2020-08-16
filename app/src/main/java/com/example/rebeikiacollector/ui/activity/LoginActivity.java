@@ -1,4 +1,4 @@
-package com.example.rebeikiacollector.ui.Activity;
+package com.example.rebeikiacollector.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
