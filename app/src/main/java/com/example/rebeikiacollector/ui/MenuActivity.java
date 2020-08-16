@@ -1,6 +1,5 @@
 package com.example.rebeikiacollector.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -11,7 +10,9 @@ import android.widget.CompoundButton;
 import com.example.rebeikiacollector.R;
 import com.example.rebeikiacollector.databinding.ActivityMenuBinding;
 import com.example.rebeikiacollector.repository.local.PreferencesManager;
-import com.example.rebeikiacollector.ui.Activity.LoginActivity;
+import com.example.rebeikiacollector.ui.activity.BaseActivity;
+import com.example.rebeikiacollector.ui.activity.LoginActivity;
+import com.example.rebeikiacollector.ui.activity.SplashActivity;
 import com.example.rebeikiacollector.utiles.Constants;
 import com.example.rebeikiacollector.utiles.Language;
 import com.example.rebeikiacollector.utiles.Utiles;

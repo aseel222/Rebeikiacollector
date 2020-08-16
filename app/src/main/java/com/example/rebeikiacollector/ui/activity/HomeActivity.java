@@ -1,4 +1,4 @@
-package com.example.rebeikiacollector.ui.Activity;
+package com.example.rebeikiacollector.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -50,6 +50,11 @@ public class HomeActivity extends AppCompatActivity {
                     startActivity(i);
 
                 }
+                else if(pos==2){
+                    Intent i=new Intent(HomeActivity.this, ActiveRequestActivity.class);
+                    startActivity(i);
+
+                }
             }
         });
         recyclerView.setAdapter(adapter);
@@ -59,8 +64,10 @@ public class HomeActivity extends AppCompatActivity {
     }
     public  void imglist(){
         list=new ArrayList<>();
-        list.add(new CategoryModel("Completed Requests",R.drawable.ic_asset1));
-        list.add(new CategoryModel("Pending Requests",R.drawable.ic_asset_6));
+        list.add(new CategoryModel("Confirmed Requests",R.drawable.ic_asset1));
+        list.add(new CategoryModel("Confirmed Special Requests",R.drawable.ic_asset_6));
+        list.add(new CategoryModel("Active Requests",R.drawable.ic_asset_4));
+
 
 
 

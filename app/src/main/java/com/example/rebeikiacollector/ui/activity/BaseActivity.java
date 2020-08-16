@@ -1,4 +1,4 @@
-package com.example.rebeikiacollector.ui;
+package com.example.rebeikiacollector.ui.activity;
 
 import android.annotation.SuppressLint;
 import android.content.res.Configuration;

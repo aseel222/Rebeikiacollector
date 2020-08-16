@@ -2,23 +2,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.rebeikiacollector">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
-        android:usesCleartextTraffic="true"
         android:name=".utiles.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ui.MenuActivity"/>
-        <activity android:name=".ui.Activity.PendingRequestActivity"></activity>
-        <activity android:name=".ui.Activity.CompletedRequestActivity" />
-        <activity android:name=".ui.Activity.HomeActivity" />
-        <activity android:name=".ui.Activity.LoginActivity" />
-        <activity android:name=".ui.SplashActivity">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".ui.activity.ActiveRequestActivity"></activity>
+        <activity android:name=".ui.MenuActivity" />
+        <activity android:name=".ui.activity.PendingRequestActivity" />
+        <activity android:name=".ui.activity.CompletedRequestActivity" />
+        <activity android:name=".ui.activity.HomeActivity" />
+        <activity android:name=".ui.activity.LoginActivity" />
+        <activity android:name=".ui.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
