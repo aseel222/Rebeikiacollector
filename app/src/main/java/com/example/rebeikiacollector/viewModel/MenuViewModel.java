@@ -35,10 +35,10 @@ public class MenuViewModel extends BaseViewModel {
 
                         @Override
                         public void onNext(Response<ProfileResponse> response) {
-                            if (response.code() == 200 ) {
+                            if (response.code() == 200) {
                                 setIsLoading(false);
                                 profileResponse.setValue(response.body());
-                            }else if (response.code() == 401){
+                            } else if (response.code() == 401) {
                                 setIsLoading(false);
                                 setMsgError("unthorized");
                                 /*ProfileResponse profileResponse1 = new ProfileResponse();
@@ -76,10 +76,9 @@ public class MenuViewModel extends BaseViewModel {
                         @Override
                         public void onNext(Response<BaseResponse> response) {
                             if (response.code() == 200) {
-                                if (response.body().getStatus() == 1) {
-                                    setIsLoading(false);
-                                    logoutResponse.setValue(response.body());
-                                }
+                                setIsLoading(false);
+                                logoutResponse.setValue(response.body());
+
                             }
                         }
 

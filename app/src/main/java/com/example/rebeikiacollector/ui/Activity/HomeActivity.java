@@ -11,6 +11,7 @@ import com.azoft.carousellayoutmanager.CarouselLayoutManager;
 import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener;
 import com.azoft.carousellayoutmanager.CenterScrollListener;
 import com.example.rebeikiacollector.R;
+import com.example.rebeikiacollector.ui.MenuActivity;
 import com.example.rebeikiacollector.ui.adapter.CategoryAdapter;
 import com.example.rebeikiacollector.model.CategoryModel;
 
@@ -32,6 +33,9 @@ public class HomeActivity extends AppCompatActivity {
         imglist();
         recyclerView=findViewById(R.id.home_recyclerview);
 
+        findViewById(R.id.iv_menu).setOnClickListener( view ->{
+            startActivity(new Intent(HomeActivity.this , MenuActivity.class));
+        });
         adapter=new CategoryAdapter(list,context);
         adapter.setOnbuttonclicklistner(new CategoryAdapter.OnItemClickListner() {
             @Override

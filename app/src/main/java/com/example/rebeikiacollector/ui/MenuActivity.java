@@ -11,6 +11,7 @@ import android.widget.CompoundButton;
 import com.example.rebeikiacollector.R;
 import com.example.rebeikiacollector.databinding.ActivityMenuBinding;
 import com.example.rebeikiacollector.repository.local.PreferencesManager;
+import com.example.rebeikiacollector.ui.Activity.LoginActivity;
 import com.example.rebeikiacollector.utiles.Constants;
 import com.example.rebeikiacollector.utiles.Language;
 import com.example.rebeikiacollector.utiles.Utiles;
@@ -27,6 +28,7 @@ public class MenuActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this , R.layout.activity_menu);
+        binding.setClickHandler(new MenuClickHandler());
         viewModel = new ViewModelProvider(this).get(MenuViewModel.class);
         pref = new PreferencesManager(this);
         setupLanguage();
@@ -44,7 +46,9 @@ public class MenuActivity extends BaseActivity {
         });
 
         viewModel.logoutResponse.observe(this , baseResponse -> {
-
+            Intent i = new Intent(MenuActivity.this, LoginActivity.class);
+            finishAffinity();
+            startActivity(i);
         });
     }
 
@@ -69,7 +73,6 @@ public class MenuActivity extends BaseActivity {
     }
     public class MenuClickHandler{
         public void onLogoutClick() {
-            
             viewModel.logOut(Constants.temp_token);
         }
     }
