@@ -13,12 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MenuActivity"></activity>
-        <activity android:name=".ui.PendingRequestActivity" />
-        <activity android:name=".ui.CompletedRequestActivity" />
-        <activity android:name=".ui.HomeActivity" />
-        <activity android:name=".ui.SignupActivity" />
-        <activity android:name=".ui.LoginActivity" />
+        <activity android:name=".ui.Activity.PendingRequestActivity"></activity>
+        <activity android:name=".ui.Activity.CompletedRequestActivity" />
+        <activity android:name=".ui.Activity.HomeActivity" />
+        <activity android:name=".ui.Activity.LoginActivity" />
         <activity android:name=".ui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
