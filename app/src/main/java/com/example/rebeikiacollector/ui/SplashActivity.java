@@ -9,6 +9,7 @@ import android.os.Handler;
 
 import com.example.rebeikiacollector.R;
 import com.example.rebeikiacollector.repository.local.PreferencesManager;
+import com.example.rebeikiacollector.ui.Activity.HomeActivity;
 import com.example.rebeikiacollector.ui.Activity.LoginActivity;
 import com.example.rebeikiacollector.utiles.InternetConnection;
 import com.example.rebeikiacollector.utiles.Language;
@@ -18,6 +19,8 @@ import java.util.Locale;
 
 public class SplashActivity extends AppCompatActivity {
     Handler handler;
+    PreferencesManager pref;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +28,20 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         changeLanguage(Utiles.getAppLanguage(this));
         handler=new Handler();
+        pref=new PreferencesManager(this);
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                if(pref.islogin()){
+                    Intent intent=new Intent(SplashActivity.this, HomeActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                else{
+
                 Intent intent=new Intent(SplashActivity.this, LoginActivity.class);
                 startActivity(intent);
-                finish();
+                finish();}
             }
         },3000);
 
