@@ -42,6 +42,10 @@ public class MenuActivity extends BaseActivity {
             Picasso.get().load(profileResponse.getImage()).into(binding.profileImage);
             binding.tvTotalPoints.setText(profileResponse.getRole());
         });
+
+        viewModel.logoutResponse.observe(this , baseResponse -> {
+
+        });
     }
 
     private void setupLanguage() {
@@ -65,6 +69,7 @@ public class MenuActivity extends BaseActivity {
     }
     public class MenuClickHandler{
         public void onLogoutClick() {
+            
             viewModel.logOut(Constants.temp_token);
         }
     }
