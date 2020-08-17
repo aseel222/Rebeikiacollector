@@ -1,6 +1,7 @@
 package com.example.rebeikiacollector.repository;
 
 
+import com.example.rebeikiacollector.model.ActiveRequestsResponse;
 import com.example.rebeikiacollector.model.BaseResponse;
 import com.example.rebeikiacollector.model.ConfirmedRequestResponse;
 import com.example.rebeikiacollector.model.LoginResponse;
@@ -20,7 +21,7 @@ public final class Repository {
     //private Context context;
 
     private Repository(/*Context context*/) {
-       // this.context = context;
+        // this.context = context;
         service = ApiManager.getInstance().getApi();
     }
 

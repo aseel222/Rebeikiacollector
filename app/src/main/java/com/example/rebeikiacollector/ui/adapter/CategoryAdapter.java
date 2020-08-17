@@ -40,26 +40,21 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final CategoryAdapter.viewHolder  holder, final int position) {
+    public void onBindViewHolder(@NonNull final CategoryAdapter.viewHolder holder, final int position) {
         final CategoryModel item = items.get(position);
         holder.image.setImageResource(item.getImg());
         holder.name.setText(item.getName());
-       if(onbuttonclicklistner!=null){
-           holder.name.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View v) {
-                   onbuttonclicklistner.onitemclick(position,item);
+        if (onbuttonclicklistner != null) {
+            holder.name.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onbuttonclicklistner.onitemclick(position, item);
 
-               }
-           });
-       }
-
+                }
+            });
         }
 
-
-
-
-
+    }
 
 
     @Override
@@ -77,14 +72,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewHo
 
         public viewHolder(View view) {
             super(view);
-          image = view.findViewById(R.id.category_img);
-          name=view.findViewById(R.id.category_btn);
+            image = view.findViewById(R.id.category_img);
+            name = view.findViewById(R.id.category_btn);
 
 
         }
     }
-    public interface OnItemClickListner{
-        void onitemclick(int pos,  CategoryModel model);
+
+    public interface OnItemClickListner {
+        void onitemclick(int pos, CategoryModel model);
     }
 
 }

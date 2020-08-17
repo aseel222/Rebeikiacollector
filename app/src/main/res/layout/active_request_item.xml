@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_image"
+            tools:src="@color/colorPrimary"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"/>
+
+        <TextView
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@android:color/black"
+            tools:text="Mohamed ahmed"
+            android:layout_marginStart="@dimen/_15sdp"
+            app:layout_constraintStart_toEndOf="@id/civ_image"
+            app:layout_constraintTop_toTopOf="@id/civ_image"
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:id="@+id/iv_address"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_name"
+            app:layout_constraintTop_toTopOf="@id/tv_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/ic_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_margin="10dp"
+            android:id="@+id/rv_list"
+            tools:listitem="@layout/order_item"
+            app:layout_constraintEnd_toStartOf="@+id/iv_address"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:textColor="@android:color/white"
+            android:background="@drawable/button_shape"
+            android:padding="12dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@id/civ_image"
+            app:layout_constraintTop_toBottomOf="@id/rv_list"
+            android:id="@+id/btn_confirm"
+            android:text="@string/confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -33,9 +33,8 @@ public class MenuActivity extends BaseActivity {
         viewModel = new ViewModelProvider(this).get(MenuViewModel.class);
         pref = new PreferencesManager(this);
         setupLanguage();
-        viewModel.getProfileData(Constants.temp_token);
+        viewModel.getProfileData("Bearer "+pref.fetchtoken());
         observeData();
-
 
     }
 
@@ -74,7 +73,7 @@ public class MenuActivity extends BaseActivity {
     }
     public class MenuClickHandler{
         public void onLogoutClick() {
-            viewModel.logOut(Constants.temp_token);
+            viewModel.logOut("Bearer "+pref.fetchtoken());
         }
     }
 }
