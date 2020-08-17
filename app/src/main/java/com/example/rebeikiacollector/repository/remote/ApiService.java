@@ -1,6 +1,7 @@
 package com.example.rebeikiacollector.repository.remote;
 
 import com.example.rebeikiacollector.model.BaseResponse;
+import com.example.rebeikiacollector.model.ConfirmedRequestResponse;
 import com.example.rebeikiacollector.model.LoginResponse;
 import com.example.rebeikiacollector.model.ProfileResponse;
 
@@ -23,6 +24,8 @@ public interface ApiService {
 @FormUrlEncoded
     @POST("collector/login")
     Observable<Response<LoginResponse>>login(@Field("email") String email, @Field("password") String password);
+@GET("collector/confirmed")
+    Observable<Response<ConfirmedRequestResponse>>confirmedrequest(@Header("Authorization") String token);
 
 
 }

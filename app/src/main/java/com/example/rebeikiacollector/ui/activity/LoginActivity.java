@@ -45,7 +45,7 @@ EditText emailetxt,passwordetxt;
     private void observeData() {
 viewModel.loginResponse.observe(this,loginResponse -> {
 
-    sharedpref.savetoken(loginResponse.getToken().toString());
+    sharedpref.savetoken(loginResponse.getToken().getToken());
     Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_LONG).show();
     Intent i = new Intent(LoginActivity.this, HomeActivity.class);
     startActivity(i);
