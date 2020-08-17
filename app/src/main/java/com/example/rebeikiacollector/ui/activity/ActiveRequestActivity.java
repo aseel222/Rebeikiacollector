@@ -11,6 +11,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.rebeikiacollector.R;
 import com.example.rebeikiacollector.databinding.ActivityActiveRequestBinding;
@@ -30,7 +31,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class ActiveRequestActivity extends AppCompatActivity {
+public class ActiveRequestActivity extends BaseActivity {
 
     private ActivityActiveRequestBinding binding;
     private ActiveRequestsViewModel viewModel;
@@ -63,6 +64,18 @@ public class ActiveRequestActivity extends AppCompatActivity {
 
         viewModel.activeRequestResponse.observe(this, response -> {
             adapter.setlist(response.getActiveRequests());
+        });
+
+        viewModel.getMsgRes().observe(this , res-> {
+            Toast.makeText(this, res, Toast.LENGTH_SHORT).show();
+        });
+
+        viewModel.isLoading().observe(this , loading ->{
+            if (loading){
+
+            }else {
+
+            }
         });
     }
 

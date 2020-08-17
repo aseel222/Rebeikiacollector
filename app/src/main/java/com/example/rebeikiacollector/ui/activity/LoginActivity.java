@@ -15,7 +15,7 @@ import com.example.rebeikiacollector.R;
 import com.example.rebeikiacollector.repository.local.PreferencesManager;
 import com.example.rebeikiacollector.viewModel.LoginViewModel;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
     Button Login;
     EditText emailetxt, passwordetxt;
     String emailtxt, passtxt;

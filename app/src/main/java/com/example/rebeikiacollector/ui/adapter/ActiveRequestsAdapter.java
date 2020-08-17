@@ -9,11 +9,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rebeikiacollector.R;
 import com.example.rebeikiacollector.model.ActiveRequestsItem;
 import com.example.rebeikiacollector.model.CategoryModel;
+import com.example.rebeikiacollector.model.OrderItem;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -46,7 +48,13 @@ public class ActiveRequestsAdapter extends RecyclerView.Adapter<ActiveRequestsAd
         final ActiveRequestsItem item = items.get(position);
          holder.name.setText(item.getUserName());
         Picasso.get().load(item.getUserImage()).into(holder.imageView);
+        setAdapter(item.getOrder() , holder);
+    }
 
+    private void setAdapter(List<OrderItem> order, viewHolder holder) {
+        ActiveRequestOrderItemAdapter adapter = new ActiveRequestOrderItemAdapter(order , context);
+        holder.recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        holder.recyclerView.setAdapter(adapter);
     }
 
     public void setlist(List<ActiveRequestsItem> items) {
@@ -65,11 +73,13 @@ public class ActiveRequestsAdapter extends RecyclerView.Adapter<ActiveRequestsAd
 
         ImageView imageView;
         TextView name;
+        RecyclerView recyclerView;
 
         public viewHolder(View view) {
             super(view);
             imageView = view.findViewById(R.id.civ_image);
             name = view.findViewById(R.id.tv_name);
+            recyclerView = view.findViewById(R.id.rv_list);
         }
     }
 

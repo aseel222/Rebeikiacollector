@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.rebeikiacollector.R;
 
-public class CompletedRequestActivity extends AppCompatActivity {
+public class CompletedRequestActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
