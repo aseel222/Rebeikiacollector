@@ -21,7 +21,6 @@ public class ConfirmedRequestAdapter extends RecyclerView.Adapter<ConfirmedReque
     private List<CompletedRequestsItem> result;
     private Context context;
 
-
     public ConfirmedRequestAdapter(List<CompletedRequestsItem> result, Context context) {
         this.result = result;
         this.context = context;
@@ -42,9 +41,10 @@ public class ConfirmedRequestAdapter extends RecyclerView.Adapter<ConfirmedReque
         String currentdate= DateFormat.getDateInstance(DateFormat.SHORT).format(calendar.getTime());
         holder.date.setText(currentdate);
         holder.username.setText(item.getUserName());
-        holder.status.setText(item.getStatus());
-        holder.type.setText(item.getReceivedOrder().get(position).getType());
-
+        if (item.getStatus() != null) {
+            holder.status.setText(item.getStatus());
+        }
+        holder.type.setText(item.getReceivedOrder().get(0).getType());
 
 
     }
@@ -68,7 +68,7 @@ public class ConfirmedRequestAdapter extends RecyclerView.Adapter<ConfirmedReque
             username=itemView.findViewById(R.id.usernametxt);
             location=itemView.findViewById(R.id.locationtxt);
             type=itemView.findViewById(R.id.typetxt);
-            status=itemView.findViewById(R.id.statustxt);
+            status=itemView.findViewById(R.id.staustxt);
             date=itemView.findViewById(R.id.datetxt);
         }
     }
