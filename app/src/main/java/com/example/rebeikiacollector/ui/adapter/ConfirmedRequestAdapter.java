@@ -44,7 +44,7 @@ public class ConfirmedRequestAdapter extends RecyclerView.Adapter<ConfirmedReque
         if (item.getStatus() != null) {
             holder.status.setText(item.getStatus());
         }
-        holder.type.setText(item.getReceivedOrder().get(0).getType());
+        holder.type.setText(item.getId());
 
 
     }
