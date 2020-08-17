@@ -92,6 +92,8 @@ public class ActiveRequestActivity extends BaseActivity {
             }else {
                 binding.loading.setVisibility(View.GONE);
             }
+
+
         });
     }
 
