@@ -36,9 +36,9 @@ public class ConfirmedRequestAdapter extends RecyclerView.Adapter<ConfirmedReque
 
     @Override
     public void onBindViewHolder(@NonNull ConfirmedRequestAdapter.viewHolder holder, int position) {
-        final CompletedRequestsItem item=result.get(position);
-        Calendar calendar=Calendar.getInstance();
-        String currentdate= DateFormat.getDateInstance(DateFormat.SHORT).format(calendar.getTime());
+        final CompletedRequestsItem item = result.get(position);
+        Calendar calendar = Calendar.getInstance();
+        String currentdate = DateFormat.getDateInstance(DateFormat.SHORT).format(calendar.getTime());
         holder.date.setText(currentdate);
         holder.username.setText(item.getUserName());
         if (item.getStatus() != null) {
@@ -48,8 +48,9 @@ public class ConfirmedRequestAdapter extends RecyclerView.Adapter<ConfirmedReque
 
 
     }
+
     public void setlist(List<CompletedRequestsItem> result) {
-        this.result=result;
+        this.result = result;
 
         notifyDataSetChanged();
     }
@@ -60,16 +61,16 @@ public class ConfirmedRequestAdapter extends RecyclerView.Adapter<ConfirmedReque
     }
 
     public class viewHolder extends RecyclerView.ViewHolder {
-        TextView username,location,type,status,date;
+        TextView username, location, type, status, date;
 
         public viewHolder(@NonNull View itemView) {
 
             super(itemView);
-            username=itemView.findViewById(R.id.usernametxt);
-            location=itemView.findViewById(R.id.locationtxt);
-            type=itemView.findViewById(R.id.typetxt);
-            status=itemView.findViewById(R.id.staustxt);
-            date=itemView.findViewById(R.id.datetxt);
+            username = itemView.findViewById(R.id.usernametxt);
+            location = itemView.findViewById(R.id.locationtxt);
+            type = itemView.findViewById(R.id.typetxt);
+            status = itemView.findViewById(R.id.staustxt);
+            date = itemView.findViewById(R.id.datetxt);
         }
     }
 }
