@@ -8,6 +8,7 @@ import android.webkit.MimeTypeMap;
 import com.example.rebeikiacollector.model.ActiveRequestsResponse;
 import com.example.rebeikiacollector.model.BaseResponse;
 import com.example.rebeikiacollector.model.ConfirmOrderRequest;
+import com.example.rebeikiacollector.model.ConfirmOrderResponse;
 import com.example.rebeikiacollector.model.LoginResponse;
 import com.example.rebeikiacollector.model.ProfileResponse;
 import com.example.rebeikiacollector.repository.remote.ApiManager;
@@ -69,7 +70,7 @@ public final class Repository {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Observable<Response<BaseResponse>> confirmRequest(String token , ConfirmOrderRequest request) {
+    public Observable<Response<ConfirmOrderResponse>> confirmRequest(String token , ConfirmOrderRequest request) {
         return service.confirmRequest(token , request)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());

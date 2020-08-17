@@ -9,6 +9,7 @@ import com.example.rebeikiacollector.R;
 import com.example.rebeikiacollector.model.ActiveRequestsResponse;
 import com.example.rebeikiacollector.model.BaseResponse;
 import com.example.rebeikiacollector.model.ConfirmOrderRequest;
+import com.example.rebeikiacollector.model.ConfirmOrderResponse;
 import com.example.rebeikiacollector.utiles.InternetConnection;
 import com.example.rebeikiacollector.utiles.Utiles;
 import io.reactivex.Observer;
@@ -18,7 +19,7 @@ import retrofit2.Response;
 public class ActiveRequestsViewModel extends BaseViewModel {
 
     public MutableLiveData<ActiveRequestsResponse> activeRequestResponse = new MutableLiveData<>();
-    public MutableLiveData<BaseResponse> confirmRequestResponse = new MutableLiveData<>();
+    public MutableLiveData<ConfirmOrderResponse> confirmRequestResponse = new MutableLiveData<>();
 
     public ActiveRequestsViewModel(@NonNull Application application) {
         super(application);
@@ -61,13 +62,13 @@ public class ActiveRequestsViewModel extends BaseViewModel {
         if (InternetConnection.checkInternetConnection()) {
             setIsLoading(true);
             getRepository().confirmRequest(token , request)
-                    .subscribe(new Observer<Response<BaseResponse>>() {
+                    .subscribe(new Observer<Response<ConfirmOrderResponse>>() {
                         @Override
                         public void onSubscribe(Disposable d) {
                         }
 
                         @Override
-                        public void onNext(Response<BaseResponse> response) {
+                        public void onNext(Response<ConfirmOrderResponse> response) {
                             if (response.code() == 200) {
                                 setIsLoading(false);
                                 confirmRequestResponse.setValue(response.body());

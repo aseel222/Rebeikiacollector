@@ -52,6 +52,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="@dimen/_10sdp"
             tools:listitem="@layout/active_request_item" />
-
+        <include
+            layout="@layout/loading"
+            android:visibility="gone"
+            android:id="@+id/loading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="@dimen/loading_size"
+            android:layout_height="@dimen/loading_size" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

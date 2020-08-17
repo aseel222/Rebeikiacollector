@@ -6,16 +6,16 @@ import com.google.gson.annotations.SerializedName;
 public class ConfirmOrderRequest{
 
 	@SerializedName("received_orders")
-	private List<ReceivedOrdersItem> receivedOrders;
+	private List<OrderItem> receivedOrders;
 
 	@SerializedName("_id")
 	private String id;
 
-	public void setReceivedOrders(List<ReceivedOrdersItem> receivedOrders){
+	public void setReceivedOrders(List<OrderItem> receivedOrders){
 		this.receivedOrders = receivedOrders;
 	}
 
-	public List<ReceivedOrdersItem> getReceivedOrders(){
+	public List<OrderItem> getReceivedOrders(){
 		return receivedOrders;
 	}
 

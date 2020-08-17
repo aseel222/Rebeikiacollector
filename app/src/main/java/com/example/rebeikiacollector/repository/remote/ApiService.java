@@ -3,6 +3,7 @@ package com.example.rebeikiacollector.repository.remote;
 import com.example.rebeikiacollector.model.ActiveRequestsResponse;
 import com.example.rebeikiacollector.model.BaseResponse;
 import com.example.rebeikiacollector.model.ConfirmOrderRequest;
+import com.example.rebeikiacollector.model.ConfirmOrderResponse;
 import com.example.rebeikiacollector.model.LoginResponse;
 import com.example.rebeikiacollector.model.ProfileResponse;
 
@@ -33,5 +34,5 @@ public interface ApiService {
 
 
     @PATCH("collector/requests/confirm")
-    Observable<Response<BaseResponse>> confirmRequest(@Header("Authorization") String token, @Body ConfirmOrderRequest body);
+    Observable<Response<ConfirmOrderResponse>> confirmRequest(@Header("Authorization") String token, @Body ConfirmOrderRequest body);
 }

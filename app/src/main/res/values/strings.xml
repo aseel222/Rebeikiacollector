@@ -82,5 +82,6 @@
     <string name="pass_changed_successfully">Password has been changed successfully</string>
     <string name="request_forbidden">Request forbidden</string>
     <string name="confirm">Confirm</string>
+    <string name="request_confirmed">Request has been confirmed</string>
 
 </resources>

@@ -62,6 +62,13 @@ public class ActiveRequestsAdapter extends RecyclerView.Adapter<ActiveRequestsAd
         holder.address.setOnClickListener(view ->{
             onAddressListner.onitemclick(item);
         });
+
+        holder.confrim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onbuttonclicklistner.onitemclick(position , item);
+            }
+        });
     }
 
     private void setAdapter(List<OrderItem> order, viewHolder holder) {
@@ -88,6 +95,7 @@ public class ActiveRequestsAdapter extends RecyclerView.Adapter<ActiveRequestsAd
         TextView name;
         RecyclerView recyclerView;
         ImageView address;
+        Button confrim;
 
         public viewHolder(View view) {
             super(view);
@@ -95,6 +103,7 @@ public class ActiveRequestsAdapter extends RecyclerView.Adapter<ActiveRequestsAd
             name = view.findViewById(R.id.tv_name);
             recyclerView = view.findViewById(R.id.rv_list);
             address = view.findViewById(R.id.iv_address);
+            confrim = view.findViewById(R.id.btn_confirm);
         }
     }
 

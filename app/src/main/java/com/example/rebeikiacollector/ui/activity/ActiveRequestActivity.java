@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.rebeikiacollector.R;
 import com.example.rebeikiacollector.databinding.ActivityActiveRequestBinding;
 import com.example.rebeikiacollector.model.ActiveRequestsItem;
+import com.example.rebeikiacollector.model.ConfirmOrderRequest;
 import com.example.rebeikiacollector.repository.local.PreferencesManager;
 import com.example.rebeikiacollector.ui.adapter.ActiveRequestsAdapter;
 import com.example.rebeikiacollector.viewModel.ActiveRequestsViewModel;
@@ -56,7 +57,10 @@ public class ActiveRequestActivity extends BaseActivity {
         binding.activerequestRecyclerview.setAdapter(adapter);
 
         adapter.setOnbuttonclicklistner((pos, model) -> {
-            //viewModel.confirmRequest("" , model.getLocation());
+            ConfirmOrderRequest request = new ConfirmOrderRequest();
+            request.setId(model.getId());
+            request.setReceivedOrders(model.getOrder());
+            viewModel.confirmRequest("Bearer "+preferencesManager.fetchtoken() , request);
         });
 
         adapter.setAddressclicklistner((model) ->{
@@ -64,6 +68,8 @@ public class ActiveRequestActivity extends BaseActivity {
                 showMapDialog(model.getLocation().getCoordinates().get(0) , model.getLocation().getCoordinates().get(1));
             }
         });
+
+
     }
 
     private void observeData() {
@@ -72,15 +78,19 @@ public class ActiveRequestActivity extends BaseActivity {
             adapter.setlist(response.getActiveRequests());
         });
 
+        viewModel.confirmRequestResponse.observe(this , baseResponse -> {
+            Toast.makeText(this, R.string.request_confirmed, Toast.LENGTH_SHORT).show();
+        });
+
         viewModel.getMsgRes().observe(this , res-> {
             Toast.makeText(this, res, Toast.LENGTH_SHORT).show();
         });
 
         viewModel.isLoading().observe(this , loading ->{
             if (loading){
-
+                binding.loading.setVisibility(View.VISIBLE);
             }else {
-
+                binding.loading.setVisibility(View.GONE);
             }
         });
     }
