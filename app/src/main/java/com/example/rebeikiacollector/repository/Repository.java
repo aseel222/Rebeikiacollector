@@ -3,6 +3,7 @@ package com.example.rebeikiacollector.repository;
 
 import com.example.rebeikiacollector.model.ActiveRequestsResponse;
 import com.example.rebeikiacollector.model.BaseResponse;
+import com.example.rebeikiacollector.model.ConfirmOrderRequest;
 import com.example.rebeikiacollector.model.ConfirmedRequestResponse;
 import com.example.rebeikiacollector.model.LoginResponse;
 import com.example.rebeikiacollector.model.ProfileResponse;
@@ -55,4 +56,13 @@ public final class Repository {
         return service.confirmedrequest(token)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());}
+    public Observable<Response<ActiveRequestsResponse>> getActiveRequests(String token) {
+        return service.getActiveRequest(token)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());}
+    public Observable<Response<BaseResponse>> confirmRequest(String token, ConfirmOrderRequest body) {
+        return service.confirmRequest(token,body)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());}
+
 }
