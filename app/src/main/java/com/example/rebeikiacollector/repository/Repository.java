@@ -47,28 +47,31 @@ public final class Repository {
 
 
     }
+
     public Observable<Response<LoginResponse>> login(String email, String password) {
-        return service.login(email,password)
+        return service.login(email, password)
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());}
+                .observeOn(AndroidSchedulers.mainThread());
+    }
 
 
     public Observable<Response<ConfirmedRequestResponse>> confirmedrequest(String token) {
         return service.confirmedrequest(token)
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());}
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
     public Observable<Response<ActiveRequestsResponse>> getActiveRequests(String token) {
         return service.getActiveRequest(token)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Observable<Response<ConfirmOrderResponse>> confirmRequest(String token , ConfirmOrderRequest request) {
-        return service.confirmRequest(token , request)
-                .observeOn(AndroidSchedulers.mainThread());}
-    public Observable<Response<BaseResponse>> confirmRequest(String token, ConfirmOrderRequest body) {
-        return service.confirmRequest(token,body)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());}
+    public Observable<Response<ConfirmOrderResponse>> confirmRequest(String token, ConfirmOrderRequest request) {
+        return service.confirmRequest(token, request)
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+
 
 }
