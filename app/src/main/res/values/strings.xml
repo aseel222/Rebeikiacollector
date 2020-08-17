@@ -3,6 +3,7 @@
     <string name="verficationtxt">We have sent you an Email with 6 digit verification code</string>
 
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBUrr-Ex6FhMwjHQL79-FgByfSgA2IT0S8</string>
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="title_activity_maps" translatable="false">Map</string>
     <string name="our_company" translatable="false">rebekia</string>

@@ -5,7 +5,9 @@ import android.util.Log;
 import android.webkit.MimeTypeMap;
 
 
+import com.example.rebeikiacollector.model.ActiveRequestsResponse;
 import com.example.rebeikiacollector.model.BaseResponse;
+import com.example.rebeikiacollector.model.ConfirmOrderRequest;
 import com.example.rebeikiacollector.model.LoginResponse;
 import com.example.rebeikiacollector.model.ProfileResponse;
 import com.example.rebeikiacollector.repository.remote.ApiManager;
@@ -30,7 +32,7 @@ public final class Repository {
     //private Context context;
 
     private Repository(/*Context context*/) {
-       // this.context = context;
+        // this.context = context;
         service = ApiManager.getInstance().getApi();
     }
 
@@ -54,8 +56,22 @@ public final class Repository {
 
 
     }
-    public Observable<Response<LoginResponse>> login(String email,String password) {
-        return service.login(email,password)
+
+    public Observable<Response<LoginResponse>> login(String email, String password) {
+        return service.login(email, password)
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());}
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Observable<Response<ActiveRequestsResponse>> getActiveRequests(String token) {
+        return service.getActiveRequest(token)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Observable<Response<BaseResponse>> confirmRequest(String token , ConfirmOrderRequest request) {
+        return service.confirmRequest(token , request)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
 }
