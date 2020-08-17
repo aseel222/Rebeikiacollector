@@ -1,6 +1,7 @@
 package com.example.rebeikiacollector.ui.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.rebeikiacollector.R;
 import com.example.rebeikiacollector.model.ActiveRequestsItem;
 import com.example.rebeikiacollector.model.OrderItem;
+import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -37,8 +39,10 @@ public class ActiveRequestOrderItemAdapter extends RecyclerView.Adapter<ActiveRe
     @Override
     public void onBindViewHolder(@NonNull final ActiveRequestOrderItemAdapter.viewHolder holder, final int position) {
         final OrderItem item = items.get(position);
-        holder.name.setText(item.getType());
-        holder.number.setText(item.getQuantity()+"");
+        if (item != null) {
+            holder.name.setText(item.getType());
+            holder.number.setText(item.getQuantity()+"");
+        }
 
     }
 
@@ -59,7 +63,7 @@ public class ActiveRequestOrderItemAdapter extends RecyclerView.Adapter<ActiveRe
 
         public viewHolder(View view) {
             super(view);
-            name = view.findViewById(R.id.tv_name);
+            name = view.findViewById(R.id.tv_type);
             number = view.findViewById(R.id.tv_number);
         }
     }

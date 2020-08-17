@@ -36,7 +36,6 @@ public class MenuActivity extends BaseActivity {
         viewModel.getProfileData("Bearer "+pref.fetchtoken());
         observeData();
 
-
     }
 
     private void observeData() {

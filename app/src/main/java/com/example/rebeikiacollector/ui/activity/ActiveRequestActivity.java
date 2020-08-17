@@ -58,6 +58,12 @@ public class ActiveRequestActivity extends BaseActivity {
         adapter.setOnbuttonclicklistner((pos, model) -> {
             //viewModel.confirmRequest("" , model.getLocation());
         });
+
+        adapter.setAddressclicklistner((model) ->{
+            if (model.getLocation().getCoordinates().size() == 2) {
+                showMapDialog(model.getLocation().getCoordinates().get(0) , model.getLocation().getCoordinates().get(1));
+            }
+        });
     }
 
     private void observeData() {

@@ -81,5 +81,6 @@
     <string name="new_and_repeat_pass_must_be_same">New and repeat password must be same</string>
     <string name="pass_changed_successfully">Password has been changed successfully</string>
     <string name="request_forbidden">Request forbidden</string>
+    <string name="confirm">Confirm</string>
 
 </resources>

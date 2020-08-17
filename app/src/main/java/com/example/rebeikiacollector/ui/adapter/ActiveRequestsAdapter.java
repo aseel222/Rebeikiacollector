@@ -30,6 +30,13 @@ public class ActiveRequestsAdapter extends RecyclerView.Adapter<ActiveRequestsAd
 
     OnItemClickListner onbuttonclicklistner;
 
+
+    public void setAddressclicklistner(OnAddressListner onAddressListner) {
+        this.onAddressListner = onAddressListner;
+    }
+
+    OnAddressListner onAddressListner;
+
     public ActiveRequestsAdapter(List<ActiveRequestsItem> items, Context context) {
         this.items = items;
         this.context = context;
@@ -48,7 +55,13 @@ public class ActiveRequestsAdapter extends RecyclerView.Adapter<ActiveRequestsAd
         final ActiveRequestsItem item = items.get(position);
          holder.name.setText(item.getUserName());
         Picasso.get().load(item.getUserImage()).into(holder.imageView);
-        setAdapter(item.getOrder() , holder);
+        if (item.getOrder() != null) {
+            setAdapter(item.getOrder() , holder);
+        }
+
+        holder.address.setOnClickListener(view ->{
+            onAddressListner.onitemclick(item);
+        });
     }
 
     private void setAdapter(List<OrderItem> order, viewHolder holder) {
@@ -74,17 +87,23 @@ public class ActiveRequestsAdapter extends RecyclerView.Adapter<ActiveRequestsAd
         ImageView imageView;
         TextView name;
         RecyclerView recyclerView;
+        ImageView address;
 
         public viewHolder(View view) {
             super(view);
             imageView = view.findViewById(R.id.civ_image);
             name = view.findViewById(R.id.tv_name);
             recyclerView = view.findViewById(R.id.rv_list);
+            address = view.findViewById(R.id.iv_address);
         }
     }
 
     public interface OnItemClickListner {
         void onitemclick(int pos, ActiveRequestsItem model);
+    }
+
+    public interface OnAddressListner {
+        void onitemclick(ActiveRequestsItem model);
     }
 
 }
