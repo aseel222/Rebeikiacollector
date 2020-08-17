@@ -47,8 +47,19 @@ public class MenuActivity extends BaseActivity {
 
         viewModel.logoutResponse.observe(this , baseResponse -> {
             Intent i = new Intent(MenuActivity.this, LoginActivity.class);
+            pref.signout();
             finishAffinity();
             startActivity(i);
+        });
+
+        viewModel.getMsgError().observe(this, msg -> {
+            if (msg.equals("unthorized")) {
+                pref.signout();
+                Intent i = new Intent(MenuActivity.this, LoginActivity.class);
+                finishAffinity();
+                startActivity(i);
+
+            }
         });
     }
 
