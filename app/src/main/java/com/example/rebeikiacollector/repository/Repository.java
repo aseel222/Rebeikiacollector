@@ -5,6 +5,7 @@ import com.example.rebeikiacollector.model.ActiveRequestsResponse;
 import com.example.rebeikiacollector.model.BaseResponse;
 import com.example.rebeikiacollector.model.ConfirmOrderRequest;
 import com.example.rebeikiacollector.model.ConfirmOrderResponse;
+import com.example.rebeikiacollector.model.ConfirmSpecialResponse;
 import com.example.rebeikiacollector.model.ConfirmedRequestResponse;
 import com.example.rebeikiacollector.model.LoginResponse;
 import com.example.rebeikiacollector.model.ProfileResponse;
@@ -57,6 +58,11 @@ public final class Repository {
 
     public Observable<Response<ConfirmedRequestResponse>> confirmedrequest(String token) {
         return service.confirmedrequest(token)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+    public Observable<Response<ConfirmSpecialResponse>> confirmspecial(String token) {
+        return service.confirmspecial(token)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
