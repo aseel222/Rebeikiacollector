@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rebeikiacollector.R;
 import com.example.rebeikiacollector.model.CompletedRequestsItem;
+import com.example.rebeikiacollector.model.ReceivedOrderItem;
 import com.squareup.picasso.Picasso;
 
 import java.text.DateFormat;
@@ -53,21 +54,21 @@ public class ConfirmedRequestAdapter extends RecyclerView.Adapter<ConfirmedReque
         holder.details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder=new AlertDialog.Builder(v.getContext());
-                View view=LayoutInflater.from(context).inflate(R.layout.details_dialog,null);
-                ImageView usericon=view.findViewById(R.id.userimg);
+                AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                View view = LayoutInflater.from(context).inflate(R.layout.details_dialog, null);
+                ImageView usericon = view.findViewById(R.id.userimg);
                 Picasso.get().load(item.getUserImage()).into(usericon);
-                TextView type=view.findViewById(R.id.typedetailstxt);
-                TextView quantity=view.findViewById(R.id.quantitydetailstxt);
-                TextView date=view.findViewById(R.id.createdatdetailstxt);
-                TextView point=view.findViewById(R.id.requestpointdetailstxt);
+                TextView type = view.findViewById(R.id.typedetailstxt);
+                TextView quantity = view.findViewById(R.id.quantitydetailstxt);
+                TextView date = view.findViewById(R.id.createdatdetailstxt);
+                TextView point = view.findViewById(R.id.requestpointdetailstxt);
 
-                    type.setText(item.getReceivedOrder().get(0).getType());
-                    quantity.setText(item.getReceivedOrder().get(0).getQuantity()+"");
+                type.setText(getArrayTypes(item.getReceivedOrder()));
+                quantity.setText(getArrayQuantities(item.getReceivedOrder()));
 
 
                 date.setText(item.getCreatedAt());
-                point.setText(item.getRequestPoint()+"");
+                point.setText(item.getRequestPoint() + "");
                 builder.setView(view);
                 builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
                     @Override
@@ -76,13 +77,29 @@ public class ConfirmedRequestAdapter extends RecyclerView.Adapter<ConfirmedReque
 
                     }
                 });
-                final AlertDialog alertDialog=builder.create();
+                final AlertDialog alertDialog = builder.create();
                 alertDialog.show();
 
             }
         });
 
 
+    }
+
+    private String getArrayQuantities(List<ReceivedOrderItem> receivedOrder) {
+        StringBuilder s = new StringBuilder("");
+        for (ReceivedOrderItem item : receivedOrder)
+            s.append(item.getQuantity()).append(", ");
+        s.delete(s.length()-2 , s.length()-1);
+        return s.toString();
+    }
+
+    private String getArrayTypes(List<ReceivedOrderItem> receivedOrder) {
+        StringBuilder s = new StringBuilder("");
+        for (ReceivedOrderItem item : receivedOrder)
+            s.append(item.getType()).append(", ");
+        s.delete(s.length()-2 , s.length()-1);
+        return s.toString();
     }
 
     public void setlist(List<CompletedRequestsItem> result) {
@@ -108,7 +125,7 @@ public class ConfirmedRequestAdapter extends RecyclerView.Adapter<ConfirmedReque
             type = itemView.findViewById(R.id.typetxt);
             status = itemView.findViewById(R.id.staustxt);
             date = itemView.findViewById(R.id.datetxt);
-            details=itemView.findViewById(R.id.detailsbtn);
+            details = itemView.findViewById(R.id.detailsbtn);
 
         }
     }
