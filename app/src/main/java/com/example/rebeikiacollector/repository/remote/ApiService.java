@@ -4,6 +4,7 @@ import com.example.rebeikiacollector.model.ActiveRequestsResponse;
 import com.example.rebeikiacollector.model.BaseResponse;
 import com.example.rebeikiacollector.model.ConfirmOrderRequest;
 import com.example.rebeikiacollector.model.ConfirmOrderResponse;
+import com.example.rebeikiacollector.model.ConfirmSpecialResponse;
 import com.example.rebeikiacollector.model.ConfirmedRequestResponse;
 import com.example.rebeikiacollector.model.LoginResponse;
 import com.example.rebeikiacollector.model.ProfileResponse;
@@ -37,6 +38,9 @@ public interface ApiService {
     Observable<Response<ActiveRequestsResponse>> getActiveRequest(@Header("Authorization") String token);
 
     Observable<Response<ConfirmOrderResponse>> confirmRequest(@Header("Authorization") String token, @Body ConfirmOrderRequest body);
+
+@GET("collector/special_confirmed")
+Observable<Response<ConfirmSpecialResponse>> confirmspecial(@Header("Authorization") String token);
 
 
 }

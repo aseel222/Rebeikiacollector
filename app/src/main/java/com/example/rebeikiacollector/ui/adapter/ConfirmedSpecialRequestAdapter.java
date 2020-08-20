@@ -15,18 +15,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rebeikiacollector.R;
 import com.example.rebeikiacollector.model.CompletedRequestsItem;
+import com.example.rebeikiacollector.model.CompletedSpecialRequestsItem;
 import com.squareup.picasso.Picasso;
 
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.List;
 
-public class ConfirmedRequestAdapter extends RecyclerView.Adapter<ConfirmedRequestAdapter.viewHolder> {
+public class ConfirmedSpecialRequestAdapter extends RecyclerView.Adapter<ConfirmedSpecialRequestAdapter.viewHolder> {
 
-    private List<CompletedRequestsItem> result;
+    private List<CompletedSpecialRequestsItem> result;
     private Context context;
 
-    public ConfirmedRequestAdapter(List<CompletedRequestsItem> result, Context context) {
+    public ConfirmedSpecialRequestAdapter(List<CompletedSpecialRequestsItem> result, Context context) {
         this.result = result;
         this.context = context;
     }
@@ -34,14 +35,14 @@ public class ConfirmedRequestAdapter extends RecyclerView.Adapter<ConfirmedReque
 
     @NonNull
     @Override
-    public ConfirmedRequestAdapter.viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.completedrequest_item, parent, false);
+    public ConfirmedSpecialRequestAdapter.viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pendingrequest_item, parent, false);
         return new viewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ConfirmedRequestAdapter.viewHolder holder, int position) {
-        final CompletedRequestsItem item = result.get(position);
+    public void onBindViewHolder(@NonNull ConfirmedSpecialRequestAdapter.viewHolder holder, int position) {
+        final CompletedSpecialRequestsItem item = result.get(position);
         Calendar calendar = Calendar.getInstance();
         String currentdate = DateFormat.getDateInstance(DateFormat.SHORT).format(calendar.getTime());
         holder.date.setText(currentdate);
@@ -62,14 +63,13 @@ public class ConfirmedRequestAdapter extends RecyclerView.Adapter<ConfirmedReque
                 TextView date=view.findViewById(R.id.createdatdetailstxt);
                 TextView point=view.findViewById(R.id.requestpointdetailstxt);
 
-                    type.setText(item.getReceivedOrder().get(0).getType());
-                    quantity.setText(item.getReceivedOrder().get(0).getQuantity()+"");
+
 
 
                 date.setText(item.getCreatedAt());
                 point.setText(item.getRequestPoint()+"");
                 builder.setView(view);
-                builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
@@ -78,14 +78,13 @@ public class ConfirmedRequestAdapter extends RecyclerView.Adapter<ConfirmedReque
                 });
                 final AlertDialog alertDialog=builder.create();
                 alertDialog.show();
-
             }
         });
 
 
     }
 
-    public void setlist(List<CompletedRequestsItem> result) {
+    public void setlist(List<CompletedSpecialRequestsItem> result) {
         this.result = result;
 
         notifyDataSetChanged();
@@ -100,7 +99,9 @@ public class ConfirmedRequestAdapter extends RecyclerView.Adapter<ConfirmedReque
         TextView username, location, type, status, date;
         Button details;
 
+
         public viewHolder(@NonNull View itemView) {
+
 
             super(itemView);
             username = itemView.findViewById(R.id.usernametxt);
